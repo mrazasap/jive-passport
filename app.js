@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session')
 var passport = require('passport');
-var request = require('request');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var JiveStrategy = require('passport-jive-oauth').Strategy;
 var OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
@@ -93,36 +92,17 @@ passport.use(new FacebookStrategy({
 ));
 
 /* Jive strategy */
-passport.use('jive-npm', new JiveStrategy({
+passport.use('jive-npm', new OAuth2Strategy({
     authorizationURL: 'https://vox-uat.sapient.com/oauth2/authorize',
     tokenURL: 'https://vox-uat.sapient.com/oauth2/token',
     clientID: '92jwrw3byejbcews47swxnvm43831m3i.i',
     clientSecret: 'f6ncrzsqz7mxys8fk1a81jjjggwa7hi0.s',
     callbackURL: 'https://passport-jive.herokuapp.com/auth/jive-npm/callback',
-    userProfileURL: 'https://vox-uat.sapient.com/api/core/v3/people/@me'
+    userProfileURL: 'https://vox-uat.sapient.com/api/core/v3/people/username/@me'
   },
   function(accessToken, refreshToken, profile, done) {
-      
-      /*
-      var requestOptions = {
-        url: 'https://vox-uat.sapient.com/api/core/v3/people/@me',
-        headers: {
-          'Authorization': 'Bearer '+ accessToken
-        }
-      };
-      
-      console.log('Requesting...');
-
-      request(requestOptions, function (error, response, body) {
-        console.log("request success");
-        if (!error && response.statusCode == 200) {
-          var info = JSON.parse(body);
-          console.log("info", info);
-        }
-        //done(null, info);
-      });
-      */
-      done(null, profile);
+    console.log("profile", profile);
+    done(null, profile);
   }
 ));
 /*
