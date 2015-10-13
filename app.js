@@ -75,7 +75,7 @@ passport.use(new FacebookStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
-    console.log("profile", profile);
+    console.log("profile");
     process.nextTick(function () {
       console.log("nextTick");
       // To keep the example simple, the user's Facebook profile is returned to
