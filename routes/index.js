@@ -14,8 +14,21 @@ router.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    console.log('Authenticated');
-    res.send('Authenticated');
+    res.redirect('/profile');
+});
+
+router.get('/profile', function () {
+    res.send("Authenticated");
+});
+
+router.get('/auth/jive',
+  passport.authenticate('jive'));
+
+router.get('/auth/jive/callback',
+  passport.authenticate('jive', { failureRedirect: '/' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/profile');
 });
 
 module.exports = router;

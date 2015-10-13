@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
+var JiveStrategy = require('passport-jive-oauth').Strategy;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -84,6 +85,20 @@ passport.use(new FacebookStrategy({
       // and return that user instead.
       return done(null, profile);
     });
+  }
+));
+
+/* Jive strategy */
+passport.use(new JiveStrategy({
+        clientID: 'bznpkqdbcyzr8nie2n8a5i0fwbgozm7u.i',
+        clientSecret: 'ellj97dqsp0my27tc6uysz8rwcoiioec.s'
+        callbackURL: 'https://passport-jive.herokuapp.com/auth/jive/callback'
+     },
+      function(accessToken, refreshToken, profile, done) {
+        console.log("profile", profile);
+        done(null, profile);
+      }
+    ));
   }
 ));
 
