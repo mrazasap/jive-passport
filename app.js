@@ -94,8 +94,7 @@ passport.use(new FacebookStrategy({
 /* Jive strategy */
 passport.use('jive-npm', new JiveStrategy({
     tokenURL: 'https://sandbox.jiveon.com/oauth2/token',
-    authorizationURL: 'https://rza-jive.herokuapp.com/oauth2/authorize',
-    userAuthorizationURL: 'https://rza-jive.herokuapp.com/oauth/authorize',
+    authorizationURL: 'https://sandbox.jiveon.com/oauth2/authorize',
     clientID: 'ntkmyekttz1janfbgqepgpoj8qtmwnrx.i',
     clientSecret: '8kt6tsdlymuufwmxbf7bozfqf8qrbvab.s',
     callbackURL: 'https://passport-jive.herokuapp.com/auth/jive/callback'
