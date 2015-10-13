@@ -18,6 +18,7 @@
     "passport-jive-oauth": "^0.2.0",
     "passport-local": "^1.0.0",
     "passport-oauth": "^1.0.0",
+    "request": "^2.65.0",
     "serve-favicon": "~2.3.0"
   }
 }
