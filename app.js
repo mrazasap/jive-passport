@@ -103,7 +103,7 @@ passport.use('jive-npm', new JiveStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
       
-  
+      /*
       var requestOptions = {
         url: 'https://vox-uat.sapient.com/api/core/v3/people/@me',
         headers: {
@@ -121,6 +121,7 @@ passport.use('jive-npm', new JiveStrategy({
         }
         //done(null, info);
       });
+      */
       done(null, profile);
   }
 ));
