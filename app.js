@@ -60,6 +60,14 @@ app.use(function(err, req, res, next) {
   });
 });
 
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+
 passport.use(new FacebookStrategy({
     clientID: '1625897364358758',
     clientSecret: '0426635717cc6c36d13102da97cc6780',
