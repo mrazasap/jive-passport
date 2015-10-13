@@ -8,7 +8,7 @@ var session = require('express-session')
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var JiveStrategy = require('passport-jive-oauth').Strategy;
-var OAuthStrategy = require('passport-oauth').OAuthStrategy;
+var OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
