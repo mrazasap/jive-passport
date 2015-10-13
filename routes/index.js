@@ -7,10 +7,10 @@ router.get('/', function(req, res, next) {
     res.send('Index');
 });
 
-app.get('/auth/facebook',
+router.get('/auth/facebook',
   passport.authenticate('facebook'));
 
-app.get('/auth/facebook/callback',
+router.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/' }),
   function(req, res) {
     // Successful authentication, redirect home.
