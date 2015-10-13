@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session')
 var passport = require('passport');
+var http = require('http');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var JiveStrategy = require('passport-jive-oauth').Strategy;
 var OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
@@ -92,7 +93,7 @@ passport.use(new FacebookStrategy({
 ));
 
 /* Jive strategy */
-passport.use('jive-npm', new OAuth2Strategy({
+passport.use('jive-npm', new JiveStrategy({
     authorizationURL: 'https://vox-uat.sapient.com/oauth2/authorize',
     tokenURL: 'https://vox-uat.sapient.com/oauth2/token',
     clientID: '92jwrw3byejbcews47swxnvm43831m3i.i',
@@ -102,7 +103,8 @@ passport.use('jive-npm', new OAuth2Strategy({
   },
   function(accessToken, refreshToken, profile, done) {
     console.log("profile", profile);
-    done(null, profile);
+    var userProfile = JiveStrategy.userProfile(accessToken, done);
+    console.log("userProfile", userProfile);
   }
 ));
 /*
