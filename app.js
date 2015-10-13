@@ -105,16 +105,17 @@ passport.use('jive-npm', new JiveStrategy({
   }
 ));
 
-passport.use('jive', new OAuthStrategy({
-    requestTokenURL: 'https://rza-jive.herokuapp.com/oauth/request_token',
-    accessTokenURL: 'https://rza-jive.herokuapp.com/oauth/access_token',
-    userAuthorizationURL: 'https://rza-jive.herokuapp.com/oauth/authorize',
-    consumerKey: 'ntkmyekttz1janfbgqepgpoj8qtmwnrx.i',
-    consumerSecret: '8kt6tsdlymuufwmxbf7bozfqf8qrbvab.s',
-    callbackURL: 'https://passport-jive.herokuapp.com/auth/jive/callback'
+passport.use('jive', new OAuth2Strategy({
+    authorizationURL: 'https://sandbox.jiveon.com/oauth2/authorize',
+    tokenURL: 'https://sandbox.jiveon.com/oauth2/token',
+    clientID: 'nyu4r5glggdn0lzemvdfrfyofanbyp13.i',
+    clientSecret: 'cs3hnjs45kdzehijw604z0vlxwpadz8s.s'
+    callbackURL: 'https://passport-jive.herokuapp.com/auth/jive-npm/callback'
   },
-  function(token, tokenSecret, profile, done) {
-    console.log("profile", profile);
+  function(accessToken, refreshToken, profile, done) {
+    
+    done(err, user);
+
   }
 ));
 
