@@ -61,15 +61,18 @@ var passport = require('passport'),
     FacebookStrategy = require('passport-facebook').Strategy;
 
 passport.use(new FacebookStrategy({
-    clientID: FACEBOOK_APP_ID,
-    clientSecret: FACEBOOK_APP_SECRET,
-    callbackURL: "http://www.marksandspencer.com"
+    clientID: '1625897364358758',
+    clientSecret: '0426635717cc6c36d13102da97cc6780',
+    callbackURL: "https://passport-jive.herokuapp.com/"
   },
   function(accessToken, refreshToken, profile, done) {
+    console.log(accessToken, refreshToken, profile, done);
+    /*
     User.findOrCreate(..., function(err, user) {
       if (err) { return done(err); }
       done(null, user);
     });
+    */
   }
 ));
 module.exports = app;
