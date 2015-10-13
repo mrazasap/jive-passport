@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var JiveStrategy = require('passport-jive-oauth').Strategy;
+var OAuthStrategy = require('passport-oauth').OAuthStrategy;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -89,6 +90,7 @@ passport.use(new FacebookStrategy({
 ));
 
 /* Jive strategy */
+/*
 passport.use(new JiveStrategy({
     clientID: 'bznpkqdbcyzr8nie2n8a5i0fwbgozm7u.i',
     clientSecret: 'ellj97dqsp0my27tc6uysz8rwcoiioec.s',
@@ -97,6 +99,19 @@ passport.use(new JiveStrategy({
   function(accessToken, refreshToken, profile, done) {
     console.log("profile", profile);
     done(null, profile);
+  }
+));
+*/
+passport.use('jive', new OAuthStrategy({
+    requestTokenURL: 'https://rza-jive.herokuapp.com/oauth/request_token',
+    accessTokenURL: 'https://rza-jive.herokuapp.com/oauth/access_token',
+    userAuthorizationURL: 'https://rza-jive.herokuapp.com/oauth/authorize',
+    consumerKey: 'ntkmyekttz1janfbgqepgpoj8qtmwnrx.i',
+    consumerSecret: '8kt6tsdlymuufwmxbf7bozfqf8qrbvab.s',
+    callbackURL: 'https://passport-jive.herokuapp.com/auth/jive/callback'
+  },
+  function(token, tokenSecret, profile, done) {
+    console.log("profile", profile);
   }
 ));
 
