@@ -90,15 +90,13 @@ passport.use(new FacebookStrategy({
 
 /* Jive strategy */
 passport.use(new JiveStrategy({
-        clientID: 'bznpkqdbcyzr8nie2n8a5i0fwbgozm7u.i',
-        clientSecret: 'ellj97dqsp0my27tc6uysz8rwcoiioec.s'
-        callbackURL: 'https://passport-jive.herokuapp.com/auth/jive/callback'
-     },
-      function(accessToken, refreshToken, profile, done) {
-        console.log("profile", profile);
-        done(null, profile);
-      }
-    ));
+    clientID: 'bznpkqdbcyzr8nie2n8a5i0fwbgozm7u.i',
+    clientSecret: 'ellj97dqsp0my27tc6uysz8rwcoiioec.s',
+    callbackURL: 'https://passport-jive.herokuapp.com/auth/jive/callback'
+  },
+  function(accessToken, refreshToken, profile, done) {
+    console.log("profile", profile);
+    done(null, profile);
   }
 ));
 
