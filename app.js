@@ -93,8 +93,8 @@ passport.use(new FacebookStrategy({
 
 /* Jive strategy */
 passport.use('jive-npm', new JiveStrategy({
-    requestTokenURL: 'https://rza-jive.herokuapp.com/oauth/request_token',
-    accessTokenURL: 'https://rza-jive.herokuapp.com/oauth/access_token',
+    tokenURL: 'https://sandbox.jiveon.com/oauth2/token',
+    authorizationURL: 'https://rza-jive.herokuapp.com/oauth2/authorize',
     userAuthorizationURL: 'https://rza-jive.herokuapp.com/oauth/authorize',
     clientID: 'ntkmyekttz1janfbgqepgpoj8qtmwnrx.i',
     clientSecret: '8kt6tsdlymuufwmxbf7bozfqf8qrbvab.s',
