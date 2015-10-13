@@ -102,14 +102,17 @@ passport.use('jive-npm', new JiveStrategy({
     userProfileURL: 'https://vox-uat.sapient.com/api/core/v3/people/@me'
   },
   function(accessToken, refreshToken, profile, done) {
-      
- 
+      done(null, profile);
+  
       var requestOptions = {
         url: 'https://vox-uat.sapient.com/api/core/v3/people/@me',
         headers: {
           'Authorization': 'Bearer '+ accessToken
         }
       };
+      
+      consolle.log('Requesting...');
+
       request(requestOptions, function (error, response, body) {
         console.log("request success");
         if (!error && response.statusCode == 200) {
@@ -118,6 +121,7 @@ passport.use('jive-npm', new JiveStrategy({
         }
         done(null, info);
       });
+
   }
 ));
 /*
