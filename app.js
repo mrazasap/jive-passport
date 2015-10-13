@@ -93,8 +93,8 @@ passport.use(new FacebookStrategy({
 
 /* Jive strategy */
 passport.use('jive-npm', new JiveStrategy({
-    clientID: 'bznpkqdbcyzr8nie2n8a5i0fwbgozm7u.i',
-    clientSecret: 'ellj97dqsp0my27tc6uysz8rwcoiioec.s',
+    clientID: 'ntkmyekttz1janfbgqepgpoj8qtmwnrx.i',
+    clientSecret: '8kt6tsdlymuufwmxbf7bozfqf8qrbvab.s',
     callbackURL: 'https://passport-jive.herokuapp.com/auth/jive-npm/callback'
   },
   function(accessToken, refreshToken, profile, done) {
