@@ -59,8 +59,8 @@ app.use(function(err, req, res, next) {
 });
 
 passport.use(new FacebookStrategy({
-    clientID: FACEBOOK_APP_ID,
-    clientSecret: FACEBOOK_APP_SECRET,
+    clientID: '1625897364358758',
+    clientSecret: '0426635717cc6c36d13102da97cc6780',
     callbackURL: "https://passport-jive.herokuapp.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
