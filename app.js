@@ -98,7 +98,7 @@ passport.use('jive-npm', new OAuth2Strategy({
     clientID: 'nyu4r5glggdn0lzemvdfrfyofanbyp13.i',
     clientSecret: 'cs3hnjs45kdzehijw604z0vlxwpadz8s.s',
     callbackURL: 'https://passport-jive.herokuapp.com/auth/jive-npm/callback',
-    userProfileURL: 'https://sandbox.jiveon.com/api/core/v3/people/@me'
+    userProfileURL: 'https://sandbox.jiveon.com/api/core/v3/people/username/mrazasap'
   },
   function(accessToken, refreshToken, profile, done) {
     console.log("profile", profile);
