@@ -77,7 +77,7 @@ passport.use(new FacebookStrategy({
     // asynchronous verification, for effect...
     console.log("profile", profile);
     process.nextTick(function () {
-      
+      console.log("nextTick");
       // To keep the example simple, the user's Facebook profile is returned to
       // represent the logged-in user.  In a typical application, you would want
       // to associate the Facebook account with a user record in your database,
