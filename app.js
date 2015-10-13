@@ -99,7 +99,7 @@ passport.use('jive-npm', new JiveStrategy({
     clientID: '92jwrw3byejbcews47swxnvm43831m3i.i',
     clientSecret: 'f6ncrzsqz7mxys8fk1a81jjjggwa7hi0.s',
     callbackURL: 'https://passport-jive.herokuapp.com/auth/jive-npm/callback',
-    userProfileURL: 'https://vox-uat.sapient.com/api/core/v3/people/username/@me'
+    userProfileURL: 'https://vox-uat.sapient.com/api/core/v3/people/username/mraza'
   },
   function(accessToken, refreshToken, profile, done) {
     console.log("profile", profile);
