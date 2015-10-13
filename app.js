@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var FacebookStrategy = require('passport-facebook').Strategy;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -55,9 +57,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-var passport = require('passport');
-var FacebookStrategy = require('passport-facebook').Strategy;
 
 passport.use(new FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
