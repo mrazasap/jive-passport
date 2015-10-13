@@ -93,9 +93,12 @@ passport.use(new FacebookStrategy({
 
 /* Jive strategy */
 passport.use('jive-npm', new JiveStrategy({
-    clientID: 'ntkmyekttz1janfbgqepgpoj8qtmwnrx.i',
-    clientSecret: '8kt6tsdlymuufwmxbf7bozfqf8qrbvab.s',
-    callbackURL: 'https://passport-jive.herokuapp.com/auth/jive-npm/callback'
+    requestTokenURL: 'https://rza-jive.herokuapp.com/oauth/request_token',
+    accessTokenURL: 'https://rza-jive.herokuapp.com/oauth/access_token',
+    userAuthorizationURL: 'https://rza-jive.herokuapp.com/oauth/authorize',
+    consumerKey: 'ntkmyekttz1janfbgqepgpoj8qtmwnrx.i',
+    consumerSecret: '8kt6tsdlymuufwmxbf7bozfqf8qrbvab.s',
+    callbackURL: 'https://passport-jive.herokuapp.com/auth/jive/callback'
   },
   function(accessToken, refreshToken, profile, done) {
     console.log("profile", profile);
