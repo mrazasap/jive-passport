@@ -92,7 +92,7 @@ passport.use(new FacebookStrategy({
 ));
 
 /* Jive strategy */
-passport.use('jive-npm', new JiveStrategy({
+passport.use('jive-npm', new OAuth2Strategy({
     authorizationURL: 'https://sandbox.jiveon.com/oauth2/authorize',
     tokenURL: 'https://sandbox.jiveon.com/oauth2/token',
     clientID: 'nyu4r5glggdn0lzemvdfrfyofanbyp13.i',
@@ -104,7 +104,7 @@ passport.use('jive-npm', new JiveStrategy({
     done(null, profile);
   }
 ));
-
+/*
 passport.use('jive', new OAuth2Strategy({
     authorizationURL: 'https://sandbox.jiveon.com/oauth2/authorize',
     tokenURL: 'https://sandbox.jiveon.com/oauth2/token',
@@ -118,6 +118,6 @@ passport.use('jive', new OAuth2Strategy({
 
   }
 ));
-
+*/
 
 module.exports = app;
