@@ -17,7 +17,7 @@ router.get('/auth/facebook/callback',
     res.redirect('/profile');
 });
 
-router.get('/profile', function () {
+router.get('/profile', function (req, res) {
     res.send("Authenticated");
 });
 
