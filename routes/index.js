@@ -21,6 +21,16 @@ router.get('/profile', function () {
     res.send("Authenticated");
 });
 
+router.get('/auth/jive-npm',
+  passport.authenticate('jive-npm'));
+
+router.get('/auth/jive-npm/callback',
+  passport.authenticate('jive-npm', { failureRedirect: '/' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/profile');
+});
+
 router.get('/auth/jive',
   passport.authenticate('jive'));
 
