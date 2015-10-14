@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session')
 var passport = require('passport');
+var request = require('request');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var JiveStrategy = require('passport-jive-oauth').Strategy;
 var OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
@@ -101,7 +102,7 @@ passport.use('jive-npm', new OAuth2Strategy({
     userProfileURL: 'https://vox-uat.sapient.com/api/core/v3/people/@me'
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log("profile", profile);
+    console.log("accessToken", accessToken);
     done(null, profile);
   }
 ));
