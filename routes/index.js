@@ -48,7 +48,7 @@ router.get('/auth/jive/callback',
           'Authorization': 'Bearer '+ accessToken
         }
       }, function (error, response, body) {
-        req.send(body);
+        res.send(body);
     });
 });
 
