@@ -102,7 +102,6 @@ passport.use('jive-npm', new OAuth2Strategy({
     userProfileURL: 'https://vox-uat.sapient.com/api/core/v3/people/@me'
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log("accessToken", accessToken);
     request({
         url: 'https://vox-uat.sapient.com/api/core/v3/people/@me',
         headers: {
