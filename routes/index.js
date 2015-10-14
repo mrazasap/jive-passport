@@ -40,6 +40,7 @@ router.get('/auth/jive',
 router.get('/auth/jive/callback',
   passport.authenticate('jive', { failureRedirect: '/login' }),
   function(req, res) {
+    console.log("req.session ",req.session);
     res.send("req.session " + req.session);
     /*
     request({
