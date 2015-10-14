@@ -56,8 +56,11 @@ router.get('/profile', function(req, res) {
           'Authorization': 'Bearer '+ accessToken
         }
       }, function (error, response, body) {
-        res.send(body);
+        res.send(JSON.parse(body));
     });
 });
+
+
+
 
 module.exports = router;
