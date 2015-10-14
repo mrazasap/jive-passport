@@ -40,20 +40,16 @@ router.get('/auth/jive',
 router.get('/auth/jive/callback',
   passport.authenticate('jive', { failureRedirect: '/login' }),
   function(req, res) {
-    console.log("req.session ",req.session);
-    res.send("req.session " + req.session);
-    /*
+    console.log("req.session ", req.session.passport.user);
+    var accessToken = req.session.passport.user;
     request({
         url: 'https://vox-uat.sapient.com/api/core/v3/people/@me',
         headers: {
-          'Authorization': 'Bearer '+ req.accessToken
+          'Authorization': 'Bearer '+ accessToken
         }
       }, function (error, response, body) {
-        
+        req.send(body);
     });
-    
-    res.send("req.user " + JSON.parse(req.user));
-    */
 });
 
 module.exports = router;
