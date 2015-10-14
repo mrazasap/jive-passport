@@ -109,8 +109,7 @@ passport.use('jive-npm', new OAuth2Strategy({
           'Authorization': 'Bearer '+ accessToken
         }
       }, function (error, response, body) {
-        console.log("error, response, body", error, response, body);
-        return done(null);
+        return done(null, body);
     });
   }
 ));
