@@ -56,7 +56,7 @@ router.get('/profile', function(req, res) {
           'Authorization': 'Bearer '+ accessToken
         }
       }, function (error, response, body) {
-        res.send(body.replace("throw 'allowIllegalResourceCall is false.'; ", ""));
+        res.send(response.replace("throw 'allowIllegalResourceCall is false.';", ""));
     });
 });
 
