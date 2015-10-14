@@ -73,12 +73,12 @@ passport.deserializeUser(function(obj, done) {
 });
 
 /* Jive strategy */
-passport.use('jive', new OAuth2Strategy({
+passport.use('jive-npm', new OAuth2Strategy({
     authorizationURL: 'https://vox-uat.sapient.com/oauth2/authorize',
     tokenURL: 'https://vox-uat.sapient.com/oauth2/token',
-    clientID: 'c9bddgmx2rxxefevd909dbuu2duymesc.i',
-    clientSecret: 'br1i9rt9v2lp92tciz3rwxi0md31jl2t.s',
-    callbackURL: 'https://passport-jive.herokuapp.com/auth/jive/callback'
+    clientID: '92jwrw3byejbcews47swxnvm43831m3i.i',
+    clientSecret: 'f6ncrzsqz7mxys8fk1a81jjjggwa7hi0.s',
+    callbackURL: 'https://passport-jive.herokuapp.com/auth/jive-npm/callback'
   },
   function(accessToken, refreshToken, profile, done) {
     request({
@@ -89,6 +89,19 @@ passport.use('jive', new OAuth2Strategy({
       }, function (error, response, body) {
         return done(null, body);
     });
+  }
+));
+
+/* Jive strategy */
+passport.use('jive', new OAuth2Strategy({
+    authorizationURL: 'https://vox-uat.sapient.com/oauth2/authorize',
+    tokenURL: 'https://vox-uat.sapient.com/oauth2/token',
+    clientID: 'c9bddgmx2rxxefevd909dbuu2duymesc.i',
+    clientSecret: 'br1i9rt9v2lp92tciz3rwxi0md31jl2t.s',
+    callbackURL: 'https://passport-jive.herokuapp.com/auth/jive/callback'
+  },
+  function(accessToken, refreshToken, profile, done) {
+    done(null, accessToken);
   }
 ));
 
