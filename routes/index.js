@@ -56,7 +56,7 @@ router.get('/profile', function(req, res) {
           'Authorization': 'Bearer '+ accessToken
         }
       }, function (error, response, body) {
-        res.send(JSON.parse(body));
+        res.send(body +"<br><br>" + response);
     });
 });
 
