@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-    res.send('Login');
+    res.render('login');
 });
 
 router.get('/auth/facebook',
