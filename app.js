@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var session = require('express-session')
 var passport = require('passport');
 var request = require('request');
-var FacebookStrategy = require('passport-facebook').Strategy;
 var JiveStrategy = require('passport-jive-oauth').Strategy;
 var OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 
@@ -73,33 +72,13 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
-passport.use(new FacebookStrategy({
-    clientID: '1625897364358758',
-    clientSecret: '0426635717cc6c36d13102da97cc6780',
-    callbackURL: "https://passport-jive.herokuapp.com/auth/facebook/callback"
-  },
-  function(accessToken, refreshToken, profile, done) {
-    // asynchronous verification, for effect...
-    console.log("profile");
-    process.nextTick(function () {
-      console.log("nextTick");
-      // To keep the example simple, the user's Facebook profile is returned to
-      // represent the logged-in user.  In a typical application, you would want
-      // to associate the Facebook account with a user record in your database,
-      // and return that user instead.
-      return done(null, profile);
-    });
-  }
-));
-
 /* Jive strategy */
-passport.use('jive-npm', new OAuth2Strategy({
+passport.use('jive', new OAuth2Strategy({
     authorizationURL: 'https://vox-uat.sapient.com/oauth2/authorize',
     tokenURL: 'https://vox-uat.sapient.com/oauth2/token',
     clientID: '92jwrw3byejbcews47swxnvm43831m3i.i',
     clientSecret: 'f6ncrzsqz7mxys8fk1a81jjjggwa7hi0.s',
-    callbackURL: 'https://passport-jive.herokuapp.com/auth/jive-npm/callback',
-    userProfileURL: 'https://vox-uat.sapient.com/api/core/v3/people/@me'
+    callbackURL: 'https://passport-jive.herokuapp.com/auth/jive/callback'
   },
   function(accessToken, refreshToken, profile, done) {
     request({
@@ -112,20 +91,5 @@ passport.use('jive-npm', new OAuth2Strategy({
     });
   }
 ));
-/*
-passport.use('jive', new OAuth2Strategy({
-    authorizationURL: 'https://sandbox.jiveon.com/oauth2/authorize',
-    tokenURL: 'https://sandbox.jiveon.com/oauth2/token',
-    clientID: 'nyu4r5glggdn0lzemvdfrfyofanbyp13.i',
-    clientSecret: 'cs3hnjs45kdzehijw604z0vlxwpadz8s.s',
-    callbackURL: 'https://passport-jive.herokuapp.com/auth/jive/callback'
-  },
-  function(accessToken, refreshToken, profile, done) {
-    
-    done(err, user);
-
-  }
-));
-*/
 
 module.exports = app;
