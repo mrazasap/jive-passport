@@ -45,11 +45,11 @@ router.get('/auth/jive/callback',
 
 router.get('/profile', function(req, res) {
     var accessToken = req.session.passport.user;
-    if (accessToken) {
+    if (!accessToken) {
       res.redirect('/login');
       return;
     }
-    
+
     request({
         url: 'https://vox-uat.sapient.com/api/core/v3/people/@me',
         headers: {
