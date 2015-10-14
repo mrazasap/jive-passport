@@ -8,6 +8,10 @@ router.get('/', function(req, res, next) {
     res.send('Index');
 });
 
+router.get('/login', function(req, res, next) {
+    res.send('Login');
+});
+
 router.get('/auth/facebook',
   passport.authenticate('facebook'));
 
@@ -39,9 +43,13 @@ router.get('/auth/jive/callback',
     res.redirect('/profile');
 });
 
-router.get('/profile', passport.authenticate('jive'), function(req, res) {
-    
+router.get('/profile', function(req, res) {
     var accessToken = req.session.passport.user;
+    if (accessToken) {
+      res.redirect('/login');
+      return;
+    }
+    
     request({
         url: 'https://vox-uat.sapient.com/api/core/v3/people/@me',
         headers: {
