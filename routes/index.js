@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var request = require('request');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -39,7 +40,8 @@ router.get('/auth/jive',
 router.get('/auth/jive/callback',
   passport.authenticate('jive', { failureRedirect: '/login' }),
   function(req, res) {
-    console.log("req.session", req.session)
+    res.send("req.session " + req.session);
+    /*
     request({
         url: 'https://vox-uat.sapient.com/api/core/v3/people/@me',
         headers: {
@@ -48,7 +50,9 @@ router.get('/auth/jive/callback',
       }, function (error, response, body) {
         
     });
+    
     res.send("req.user " + JSON.parse(req.user));
+    */
 });
 
 module.exports = router;
