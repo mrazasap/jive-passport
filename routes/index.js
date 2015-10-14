@@ -27,7 +27,7 @@ router.get('/auth/jive-npm',
 router.get('/auth/jive-npm/callback',
   passport.authenticate('jive-npm', { failureRedirect: '/' }),
   function(req, res) {
-    res.send(req);
+    res.send(req.body);
     // Successful authentication, redirect home.
     //res.redirect('/profile');
 });
